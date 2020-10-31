@@ -23,7 +23,7 @@
   </xsl:for-each>
   
   <xsl:for-each select="//Schedule/Lesson/Lecture[Day='Tuesday']">
-  <tr bgcolor="#00CC99">
+  <tr bgcolor="#00CC07">
     <td><xsl:value-of select="../Title"/></td>
     <td><xsl:value-of select="../Professor"/></td>
     <td><xsl:value-of select="Day"/></td>
@@ -48,6 +48,22 @@
   
   <xsl:for-each select="//Schedule/Lesson/Lecture[Day='Friday']">
   <tr bgcolor="#993399">
+    <td><xsl:value-of select="../Title"/></td>
+    <td><xsl:value-of select="../Professor"/></td>
+    <td><xsl:value-of select="Day"/></td>
+  </tr>
+  </xsl:for-each>
+  
+  <xsl:for-each select="//Schedule/Lesson/Lecture[Day='Saturday']">
+  <tr bgcolor="#db7d12">
+    <td><xsl:value-of select="../Title"/></td>
+    <td><xsl:value-of select="../Professor"/></td>
+    <td><xsl:value-of select="Day"/></td>
+  </tr>
+  </xsl:for-each>
+  
+  <xsl:for-each select="//Schedule/Lesson/Lecture[Day='Sunday']">
+  <tr bgcolor="#05e7f7">
     <td><xsl:value-of select="../Title"/></td>
     <td><xsl:value-of select="../Professor"/></td>
     <td><xsl:value-of select="Day"/></td>
