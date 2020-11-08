@@ -225,7 +225,7 @@ public class jf1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday","Sunday","AllDays" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AllDays","Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday","Sunday" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
@@ -239,11 +239,11 @@ public class jf1 extends javax.swing.JFrame {
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][]{
-                {null,null,null,null}
+                {null,null,null,null,null}
 
             },
             new String [] {
-                "Lesson", "Professor", "Day","Time"
+                "Lesson", "Professor", "Day","Time", "Classroom"
             }
         ){
             boolean[] canEdit = new boolean[]{false, false, false};
@@ -261,28 +261,28 @@ public class jf1 extends javax.swing.JFrame {
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addContainerGap(51, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(45, 45, 45))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(105, 105, 105))))
         .addGroup(layout.createSequentialGroup()
-            .addGap(176, 176, 176)
+            .addGap(209, 209, 209)
             .addComponent(jLabel5)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(0, 0, Short.MAX_VALUE))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addContainerGap(40, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(39, 39, 39))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(132, 132, 132))))
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
-            .addGap(31, 31, 31)
+            .addGap(25, 25, 25)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGap(18, 18, 18)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel5)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -338,7 +338,7 @@ public class jf1 extends javax.swing.JFrame {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             DOMSource domSource = new DOMSource(doc );
-            StreamResult streamResult = new StreamResult(new File("cdCatalog.xml"));
+            StreamResult streamResult = new StreamResult(new File("9_RIGHT_schedule.xml"));
             try {
                 transformer.transform(domSource, streamResult);
             } catch (TransformerException ex) {
@@ -346,6 +346,9 @@ public class jf1 extends javax.swing.JFrame {
             }
 
            DOMSource source = new DOMSource(doc);
+           DefaultTableModel model;                           
+           model = (DefaultTableModel) jTable4.getModel();
+           model.addRow(new Object[]{ TitleField, ProfessorField, DayField, TimeField, ClassField});
         } catch (TransformerConfigurationException ex) {
             Logger.getLogger(jf1.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -397,13 +400,10 @@ public class jf1 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(jf1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
                  
-       // URL schemaFile = new URL("http://host:port/filename.xsd");
-        // webapp example xsd: 
-        // URL schemaFile = new URL("http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd");
-       
+        Source xmlFile = new StreamSource(new File("C:\\Users\\Ρωμανός\\Downloads\\KRWEB_20-21_ASK1\\SampleXMLs\\10_schedule_edited.xml"));
         File schemaFile = new File("C:\\Users\\Ρωμανός\\Downloads\\KRWEB_20-21_ASK1\\SampleXMLs\\schedule_9.xsd"); // etc.
-        File xmlFile1 = new File("C:\\Users\\Ρωμανός\\Downloads\\KRWEB_20-21_ASK1\\SampleXMLs\\9_RIGHT_schedule.xml");
-        Source xmlFile = new StreamSource(new File("C:\\Users\\Ρωμανός\\Downloads\\KRWEB_20-21_ASK1\\SampleXMLs\\9_RIGHT_schedule.xml"));
+        File xmlFile1 = new File("C:\\Users\\Ρωμανός\\Downloads\\KRWEB_20-21_ASK1\\SampleXMLs\\10_schedule_edited.xml");
+        
         SchemaFactory schemaFactory = SchemaFactory
             .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         
@@ -418,7 +418,7 @@ public class jf1 extends javax.swing.JFrame {
 	  DocumentBuilder dBuilder;
             try {
                 dBuilder = dbFactory.newDocumentBuilder();
-                //Document doc;
+                
                 doc = dBuilder.parse(xmlFile1);
                 doc.getDocumentElement().normalize();
                 root = doc.getDocumentElement();
@@ -434,55 +434,38 @@ public class jf1 extends javax.swing.JFrame {
                     System.out.println("\nCurrent Element :" + nNode.getNodeName());
                     String data3 = "";
                     String data4= "";
+                    String data5 = "";
                     if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                            System.out.println("\nCurrent Element :" + nNode.getNodeName());
+                           
                             Element eElement = (Element) nNode;
                             String data1 = eElement.getElementsByTagName("Title").item(0).getTextContent();
-                            String data2 = eElement.getElementsByTagName("Professor").item(0).getTextContent();                            
-                            System.out.println(eElement.getElementsByTagName("Lecture").getLength());                              
-//                             if (nNode.hasChildNodes()) {                  
-//                                 
-//                  //visitChildNodes(nNode.getChildNodes());
-//               }
-                           // System.out.println("Staff id : " + eElement.getElementsByTagName("Title").item(0).getTextContent());
-			//System.out.println("First Name : " + eElement.getElementsByTagName("Day").item(0).getTextContent());
-                            //Object[] row = { data1, data2, data3};
+                            String data2 = eElement.getElementsByTagName("Professor").item(0).getTextContent();                                                      
                             
                             try{
                                 int height = jTable4.getRowCount();
-                                DefaultTableModel model;
-                              //model = new DefaultTableModel(); 
-                          //JTable jTable5 = new  JTable(model);
+                                DefaultTableModel model;                           
                                 model = (DefaultTableModel) jTable4.getModel();
-                             //int count= jTable5.getModel().getRowCount(); 
-                                System.out.println(temp);
+                                //initialize 2 string Arrays
                                 String[] data = new String[eElement.getElementsByTagName("Lecture").getLength()];
                                 String[] data_1 = new String[eElement.getElementsByTagName("Lecture").getLength()];
-                              
+                                
+                                //get all elements of each lecture for current Lesson node
                                 for (int temp1 = 0; temp1 < eElement.getElementsByTagName("Lecture").getLength(); temp1++){
-                                   data3 = eElement.getElementsByTagName("Day").item(temp1).getTextContent();
-                                   data4 = eElement.getElementsByTagName("Time").item(temp1).getTextContent();
+                                   data5 = nList1.item(temp1).getAttributes().getNamedItem("Classroom").getNodeValue(); //get Classroom attribute
+                                   data3 = eElement.getElementsByTagName("Day").item(temp1).getTextContent(); //get Day element
+                                   data4 = eElement.getElementsByTagName("Time").item(temp1).getTextContent(); //get time element
+                                   //populate the Arrays
                                    data[temp1]=data3;
-                                   data_1[temp1]=data4;
-                                   System.out.println("temp1= "+temp1);
-                                   model.addRow(new Object[]{ data1, data2, data3, data4});
+                                   data_1[temp1]=data4;                                   
+                                   model.addRow(new Object[]{ data1, data2, data3, data4, data5}); //add to table
                                 }
                              
-                               //jTable4.setValueAt(data1, temp, 0);
-                               System.out.println("lesson" + data1);
-                               //jTable4.setValueAt(data2, temp, 1);
-                               System.out.println("Prof" + data2);
-                               //jTable4.setValueAt(data[temp], temp, 2);
-                               System.out.println("Day" + data);
                                height = jTable4.getRowCount();      
-                               System.out.println(height);                           
-            
-                            //jPanel2.add(jTable4);
+                               
                             }
                             catch(Exception ex){
                                
                             }
-
                     }
 	      }
             } catch (ParserConfigurationException ex) {
@@ -491,8 +474,10 @@ public class jf1 extends javax.swing.JFrame {
          
         } catch (SAXException e) {
           System.out.println(xmlFile.getSystemId() + " is NOT valid reason:" + e);
-        } catch (IOException e) { System.out.println(xmlFile.getSystemId() + " is NOT valid reason:" + e);}
-            
+          
+        } catch (IOException e) { 
+            System.out.println(xmlFile.getSystemId() + " is NOT valid reason:" + e);
+        }            
         
     }
     protected static Document doc;
