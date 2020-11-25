@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<rdf:RDF
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:a="http://description.org/schema/">
+
+<rdf:Description rdf:about="http://mydomain/Statement1">
+	<rdf:subject rdf:resource="http://description.org/schema/#CEID" />
+	<rdf:predicate rdf:resource="http://description.org/schema/is_located"/>
+	<rdf:object> Rio </rdf:object>
+	<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement" />
+</rdf:Description>
+
+<rdf:Description rdf:about="google">
+	<a:says rdf:resource="http://mydomain/Statement1"/>
+</rdf:Description>
+
+</rdf:RDF>
