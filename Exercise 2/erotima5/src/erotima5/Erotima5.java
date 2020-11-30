@@ -236,8 +236,8 @@ public class Erotima5 {
                     resource.addProperty(p_phone, phone);
                     resource.addProperty(p_email, email);
                     resource.addProperty(p_age, age);
-                    resource.addProperty(p_member_of, model.getResource(uni + member_of));
-                    resource.addProperty(p_teaches, model.getResource(uni + teaches));
+                    resource.addProperty(p_member_of, model.getResource(uni + "Department/" + member_of));
+                    resource.addProperty(p_teaches, model.getResource(uni + "Lesson/" + teaches));
                 }
                 if (input2.equals("Student")) {
                     String st_name = null;
@@ -333,7 +333,6 @@ public class Erotima5 {
                     Property ls_name = model.createProperty(uni, "has_name");
                     Property ls_teaches = model.createProperty(uni, "taught-by");
                     //add values
-                    //resource.addProperty(RDF.type, model.getResource(uni + "Lesson"));
                     resource.addProperty(ls_name, les_name);
                     resource.addProperty(ls_teaches, model.getResource(uni + "Professor/" + les_taught_by));
                 }
@@ -376,13 +375,12 @@ public class Erotima5 {
                     resource.addProperty(RDF.type, model.getResource(uni + "Classroom"));
                     resource.addProperty(r_name, class_name);
                     resource.addProperty(r_capacity, class_capacity);
-                    resource.addProperty(r_department, model.getResource(uni + class_department));
+                    resource.addProperty(r_department, model.getResource(uni + "Department/" + class_department));
                 }
                 //write data to file
                 try{
                     OutputStream output = new FileOutputStream("ask32.rdf");
-                    RDFDataMgr.write(output, model, RDFFormat.RDFXML_PLAIN);
-                    //model.write(output, "RDF/XML");
+                    RDFDataMgr.write(output, model, RDFFormat.RDFXML_PLAIN);                    
                 }
                 catch(IOException e){
                     System.err.println("Error: " + e);

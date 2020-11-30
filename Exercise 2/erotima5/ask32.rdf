@@ -130,6 +130,12 @@
     <uni:room_name>Χ3-216</uni:room_name>
     <rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Classroom"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Classroom/E101">
+    <uni:room_department rdf:resource="http://www.mydomain.com/uni-ns/Department/CEID"/>
+    <uni:room_capacity>123</uni:room_capacity>
+    <uni:room_name>E101</uni:room_name>
+    <rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Classroom"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Lesson/less7">
     <uni:taught_by rdf:resource="http://www.mydomain.com/uni-ns/Professor/prof5"/>
     <uni:les_name>Digital Design</uni:les_name>
@@ -227,10 +233,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Person">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Lesson/les11">
-    <uni:taught-by rdf:resource="http://www.mydomain.com/uni-ns/Professor/prof3"/>
-    <uni:has_name>Deep Learning</uni:has_name>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.mydomain.com/uni-ns/room_capacity">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
