@@ -1,9 +1,13 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX uni: <http://www.mydomain.com/uni-ns/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?x
-WHERE {	
-        ?x	uni:room_capacity ?capacity.		
-		FILTER (?capacity>"150")
+SELECT ?name
+WHERE {	?x rdf:type uni:Classroom.
+        ?x	uni:room_department ?y.	
+        ?x 	uni:room_name ?name. 
+        ?x	uni:room_capacity ?capacity.      		
+		?y	uni:dep_city "Patras".		
+		FILTER (xsd:integer(?capacity)>150)
 }

@@ -3,8 +3,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX uni: <http://www.mydomain.com/uni-ns/>
 
 SELECT ?name
-WHERE {	
-        ?x	uni:member_of ?dep.	
+WHERE {	?x	uni:member_of ?dep.	
         ?x 	uni:has_name ?name.			
 		?dep	uni:dep_city "Patras".
 }

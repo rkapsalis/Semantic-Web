@@ -6,5 +6,5 @@ WHERE
 {?x rdf:type uni:Student.
 	?x uni:has_phone ?phone.
 	?x uni:has_age ?age.
-	FILTER (?age < "20") 
+	FILTER (?age > "23") 
 }

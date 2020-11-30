@@ -183,7 +183,7 @@
 	
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Professor/prof4">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Professor"/>
-		<uni:has_name>Kosmidou</uni:has_name>
+		<uni:has_name>Maria Kosmidou</uni:has_name>
 		<uni:has_phone>2310997308</uni:has_phone>
 		<uni:has_email>kosmidis@psy.auth.gr</uni:has_email>
 		<uni:has_age>55</uni:has_age>
@@ -193,7 +193,7 @@
 	
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Professor/prof5">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Professor"/>
-		<uni:has_name>Stamoulis</uni:has_name>
+		<uni:has_name>Georgios Stamoulis</uni:has_name>
 		<uni:has_phone>2421074997</uni:has_phone>
 		<uni:has_email>georges@e-ce.uth.gr</uni:has_email>
 		<uni:has_age>48</uni:has_age>
@@ -203,7 +203,7 @@
 	
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Professor/prof6">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Professor"/>
-		<uni:has_name>Karatzas</uni:has_name>
+		<uni:has_name>Anastasios Karatzas</uni:has_name>
 		<uni:has_phone>2413502177</uni:has_phone>
 		<uni:has_email>karatzas@med.uth.gr</uni:has_email>
 		<uni:has_age>54</uni:has_age>
@@ -213,7 +213,7 @@
 	
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Professor/prof7">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Professor"/>
-		<uni:has_name>Goudeli</uni:has_name>
+		<uni:has_name>Kiriaki Goudeli</uni:has_name>
 		<uni:has_phone>2610999991</uni:has_phone>
 		<uni:has_email>kgoudeli@upatras.gr</uni:has_email>
 		<uni:has_age>39</uni:has_age>
@@ -223,7 +223,7 @@
 	
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Professor/prof8">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Professor"/>
-		<uni:has_name>Albanis</uni:has_name>
+		<uni:has_name>Triantafyllos Albanis</uni:has_name>
 		<uni:has_phone>2651098348</uni:has_phone>
 		<uni:has_email>talbanis@cc.uoi.gr</uni:has_email>
 		<uni:has_age>55</uni:has_age>
@@ -233,7 +233,7 @@
 
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Professor/prof9">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Professor"/>
-		<uni:has_name>Aravossis</uni:has_name>
+		<uni:has_name>Konstantinos Aravossis</uni:has_name>
 		<uni:has_phone>2107721359.</uni:has_phone>
 		<uni:has_email>arvis@mail.ntua.gr</uni:has_email>
 		<uni:has_age>62</uni:has_age>
@@ -243,7 +243,7 @@
     
     <rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Professor/prof10">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Professor"/>
-		<uni:has_name>Vrahatis</uni:has_name>
+		<uni:has_name>Michael Vrahatis</uni:has_name>
 		<uni:has_phone>2610997274</uni:has_phone>
 		<uni:has_email>vrahatis@math.upatras.gr</uni:has_email>
 		<uni:has_age>60</uni:has_age>
@@ -253,7 +253,7 @@
 
     <rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Professor/prof11">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Professor"/>
-		<uni:has_name>Korakis</uni:has_name>
+		<uni:has_name>Athanasios Korakis</uni:has_name>
 		<uni:has_phone>2421074932</uni:has_phone>
 		<uni:has_email>korakis@e-ce.uth.gr</uni:has_email>
 		<uni:has_age>47</uni:has_age>
@@ -267,7 +267,7 @@
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Student"/>
 		<uni:has_name>Konstantinos Tsimikas</uni:has_name>
 		<uni:has_phone>2610335249</uni:has_phone>
-		<uni:has_email>tsimikaros@ceid.upatras.gr</uni:has_email>
+		<uni:has_email>tsimikaros@psy.auth.gr</uni:has_email>
 		<uni:has_age>24</uni:has_age>
 		<uni:member_of rdf:resource="http://www.mydomain.com/uni-ns/Department/Psychology"/>		
 	</rdf:Description>
@@ -347,7 +347,7 @@
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Student/stud10">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Student"/>
 		<uni:has_name>Walter White</uni:has_name>
-		<uni:has_phone>2610723820</uni:has_phone>
+		<uni:has_phone>2710723820</uni:has_phone>
 		<uni:has_email>heisenberg@yahoo.com</uni:has_email>
 		<uni:has_age>23</uni:has_age>
 		<uni:member_of rdf:resource="http://www.mydomain.com/uni-ns/Department/Chem"/>	
@@ -374,7 +374,7 @@
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Student/stud13">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Student"/>
 		<uni:has_name>Korina Mitropoulou</uni:has_name>
-		<uni:has_phone>2610207238</uni:has_phone>
+		<uni:has_phone>2410138661</uni:has_phone>
 		<uni:has_email>korina_m@yahoo.com</uni:has_email>
 		<uni:has_age>19</uni:has_age>
 		<uni:member_of rdf:resource="http://www.mydomain.com/uni-ns/Department/Med"/>	
@@ -383,7 +383,7 @@
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Student/stud14">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Student"/>
 		<uni:has_name>Dionisia Markora</uni:has_name>
-		<uni:has_phone>2610207238</uni:has_phone>
+		<uni:has_phone>2421052692</uni:has_phone>
 		<uni:has_email>ntenmar@gmail.com</uni:has_email>
 		<uni:has_age>30</uni:has_age>
 		<uni:member_of rdf:resource="http://www.mydomain.com/uni-ns/Department/ECE"/>		
@@ -392,7 +392,7 @@
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Student/stud15">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Student"/>
 		<uni:has_name>Xristina Markatou</uni:has_name>
-		<uni:has_phone>2610207238</uni:has_phone>
+		<uni:has_phone>2610943696</uni:has_phone>
 		<uni:has_email>x_markatos@hotmail.com</uni:has_email>
 		<uni:has_age>26</uni:has_age>
 		<uni:member_of rdf:resource="http://www.mydomain.com/uni-ns/Department/CEID"/>	
@@ -401,7 +401,7 @@
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Student/stud16">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Student"/>
 		<uni:has_name>Flora Varvaritsa</uni:has_name>
-		<uni:has_phone>2610207238</uni:has_phone>
+		<uni:has_phone>2610512713</uni:has_phone>
 		<uni:has_email>varvaritsa@gmail.com</uni:has_email>
 		<uni:has_age>27</uni:has_age>
 		<uni:member_of rdf:resource="http://www.mydomain.com/uni-ns/Department/Philosophy"/>		
@@ -410,7 +410,7 @@
 	<rdf:Description rdf:about="http://www.mydomain.com/uni-ns/Student/stud17">
 		<rdf:type rdf:resource="http://www.mydomain.com/uni-ns/Student"/>
 		<uni:has_name>Matina Mantarinaki</uni:has_name>
-		<uni:has_phone>2610207238</uni:has_phone>
+		<uni:has_phone>2410747990</uni:has_phone>
 		<uni:has_email>mantarinaki@gmail.com</uni:has_email>
 		<uni:has_age>23</uni:has_age>
 		<uni:member_of rdf:resource="http://www.mydomain.com/uni-ns/Department/Med"/>		
