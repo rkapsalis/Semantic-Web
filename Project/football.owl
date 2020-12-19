@@ -12,6 +12,10 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#cooperatesWith
+:cooperatesWith rdf:type owl:ObjectProperty .
+
+
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasColor
 :hasColor rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf owl:topObjectProperty .
@@ -26,24 +30,26 @@
 :hasPlayer rdf:type owl:ObjectProperty .
 
 
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayers
-:hasPlayers rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty .
-
-
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasRegion
 :hasRegion rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty .
 
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isAffiliatedWith
+:isAffiliatedWith rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty .
+
+
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_Responsible_for
 :is_Responsible_for rdf:type owl:ObjectProperty ;
-                    owl:inverseOf :is_officiated_by .
+                    owl:inverseOf :is_officiated_by ;
+                    owl:propertyDisjointWith :is_officiated_by .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_managed_by
 :is_managed_by rdf:type owl:ObjectProperty ;
-               owl:inverseOf :manages .
+               owl:inverseOf :manages ;
+               owl:propertyDisjointWith :manages .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_officiated_by
@@ -53,7 +59,8 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_owned_by
 :is_owned_by rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf owl:topObjectProperty .
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:inverseOf :owns .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#manages
@@ -61,22 +68,48 @@
          rdfs:subPropertyOf owl:topObjectProperty .
 
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#owns
+:owns rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsAgainst
+:playsAgainst rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Capacity
+:Capacity rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :StadiumDetails .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Name
+:Name rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#StadiumDetails
+:StadiumDetails rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Suites
+:Suites rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :StadiumDetails .
+
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasAge
 :hasAge rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty .
 
 
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasCapacity
-:hasCapacity rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf owl:topDataProperty .
-
-
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isEnclosed
 :isEnclosed rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :StadiumDetails ;
             rdfs:range xsd:boolean .
 
 
@@ -104,8 +137,7 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Booked
 :Booked rdf:type owl:Class ;
-        rdfs:subClassOf :Stats ;
-        owl:disjointWith :NotPlayed .
+        rdfs:subClassOf :Played .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Center-back
@@ -125,8 +157,7 @@
                             owl:minQualifiedCardinality "11"^^xsd:nonNegativeInteger ;
                             owl:onClass :Footballer
                           ] ;
-      rdfs:subClassOf :Team ;
-      owl:disjointWith :National .
+      rdfs:subClassOf :Team .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach
@@ -146,14 +177,11 @@
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition
-:Competition rdf:type owl:Class ;
-             owl:disjointWith :Person .
+:Competition rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Condition
-:Condition rdf:type owl:Class ;
-           rdfs:subClassOf :Footballer ;
-           owl:disjointWith :Position .
+:Condition rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CopaLibertadores
@@ -171,8 +199,7 @@
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Facility
-:Facility rdf:type owl:Class ;
-          owl:disjointWith :Person .
+:Facility rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer
@@ -218,7 +245,8 @@
                                owl:onProperty :hasGameStats ;
                                owl:allValuesFrom :NotPlayed
                              ] ;
-         rdfs:subClassOf :Condition .
+         rdfs:subClassOf :Condition ;
+         owl:disjointWith :NotInjured .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Medical_staff
@@ -249,23 +277,32 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#NotBooked
 :NotBooked rdf:type owl:Class ;
-           owl:equivalentClass [ rdf:type owl:Class ;
-                                 owl:complementOf :Booked
+           owl:equivalentClass [ owl:intersectionOf ( :Played
+                                                      [ rdf:type owl:Class ;
+                                                        owl:complementOf :Booked
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
                                ] ;
-           rdfs:subClassOf :Stats .
+           rdfs:subClassOf :Played .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#NotInjured
 :NotInjured rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Class ;
-                                  owl:complementOf :Injured
+            owl:equivalentClass [ owl:intersectionOf ( :Condition
+                                                       [ rdf:type owl:Class ;
+                                                         owl:complementOf :Injured
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
                                 ] ;
             rdfs:subClassOf :Condition .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#NotPlayed
 :NotPlayed rdf:type owl:Class ;
-           rdfs:subClassOf :Stats .
+           rdfs:subClassOf :Stats ;
+           owl:disjointWith :Played .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Offensive
@@ -277,6 +314,11 @@
 :Person rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Played
+:Played rdf:type owl:Class ;
+        rdfs:subClassOf :Stats .
+
+
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerCoach
 :PlayerCoach rdf:type owl:Class ;
              owl:equivalentClass [ owl:intersectionOf ( :Coach
@@ -284,7 +326,7 @@
                                                       ) ;
                                    rdf:type owl:Class
                                  ] ;
-             rdfs:subClassOf :Coach .
+             rdfs:subClassOf :Staff .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Position
@@ -308,6 +350,11 @@
          rdfs:subClassOf :Person .
 
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Scored
+:Scored rdf:type owl:Class ;
+        rdfs:subClassOf :Played .
+
+
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#SentOff
 :SentOff rdf:type owl:Class ;
          owl:equivalentClass [ owl:intersectionOf ( :Booked
@@ -327,7 +374,8 @@
                                owl:onProperty :is_owned_by ;
                                owl:allValuesFrom :Club
                              ] ;
-         rdfs:subClassOf :Facility .
+         rdfs:subClassOf :Facility ;
+         owl:disjointWith :TrainingCentre .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Staff
@@ -380,20 +428,12 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Europe
-:Europe rdf:type owl:NamedIndividual .
-
-
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Red
 :Red rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#SouthAmerica
 :SouthAmerica rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Yellow
-:Yellow rdf:type owl:NamedIndividual .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
