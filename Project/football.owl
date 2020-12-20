@@ -13,7 +13,9 @@
 #################################################################
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#cooperatesWith
-:cooperatesWith rdf:type owl:ObjectProperty .
+:cooperatesWith rdf:type owl:ObjectProperty ,
+                         owl:SymmetricProperty ,
+                         owl:TransitiveProperty .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasColor
@@ -27,17 +29,20 @@
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayer
-:hasPlayer rdf:type owl:ObjectProperty .
+:hasPlayer rdf:type owl:ObjectProperty ;
+           owl:inverseOf :playsFor .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasRegion
 :hasRegion rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf owl:topObjectProperty .
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdf:type owl:FunctionalProperty .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isAffiliatedWith
 :isAffiliatedWith rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty .
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdf:type owl:SymmetricProperty .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_Responsible_for
@@ -49,6 +54,7 @@
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_managed_by
 :is_managed_by rdf:type owl:ObjectProperty ;
                owl:inverseOf :manages ;
+               rdf:type owl:FunctionalProperty ;
                owl:propertyDisjointWith :manages .
 
 
@@ -63,18 +69,35 @@
              owl:inverseOf :owns .
 
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#loaned
+:loaned rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :hasPlayer .
+
+
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#manages
 :manages rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf owl:topObjectProperty .
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdf:type owl:InverseFunctionalProperty .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#owns
-:owns rdf:type owl:ObjectProperty .
+:owns rdf:type owl:ObjectProperty ,
+               owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#permanentTransfer
+:permanentTransfer rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :hasPlayer .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsAgainst
 :playsAgainst rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf owl:topObjectProperty .
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsFor
+:playsFor rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -135,6 +158,11 @@
                  rdfs:subClassOf :Position .
 
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Assistant
+:Assistant rdf:type owl:Class ;
+           rdfs:subClassOf :Coach .
+
+
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Booked
 :Booked rdf:type owl:Class ;
         rdfs:subClassOf :Played .
@@ -172,8 +200,7 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff
 :Coaching_staff rdf:type owl:Class ;
-                rdfs:subClassOf :Staff ;
-                owl:disjointWith :Medical_staff .
+                rdfs:subClassOf :Staff .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition
@@ -247,6 +274,11 @@
                              ] ;
          rdfs:subClassOf :Condition ;
          owl:disjointWith :NotInjured .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Manager
+:Manager rdf:type owl:Class ;
+         rdfs:subClassOf :Coach .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Medical_staff
@@ -326,7 +358,7 @@
                                                       ) ;
                                    rdf:type owl:Class
                                  ] ;
-             rdfs:subClassOf :Staff .
+             rdfs:subClassOf :Coach .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Position
@@ -348,6 +380,10 @@
                                owl:someValuesFrom :Game
                              ] ;
          rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Region
+:Region rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Scored
@@ -428,12 +464,90 @@
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Alisson
+:Alisson rdf:type owl:NamedIndividual ,
+                  :Goalkeeper .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Anfield
+:Anfield rdf:type owl:NamedIndividual ,
+                  :Facility ,
+                  :Stadium .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Argentina
+:Argentina rdf:type owl:NamedIndividual ,
+                    :Region .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona
+:Barcelona rdf:type owl:NamedIndividual ,
+                    :Club .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#JonathanMoss
+:JonathanMoss rdf:type owl:NamedIndividual ,
+                       :Person ,
+                       :Referee .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#JürgenKlopp
+:JürgenKlopp rdf:type owl:NamedIndividual ,
+                      :Manager .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#LionelMessi
+:LionelMessi rdf:type owl:NamedIndividual ,
+                      :Footballer ,
+                      :Person .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool
+:Liverpool rdf:type owl:NamedIndividual ,
+                    :Club .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Melwood
+:Melwood rdf:type owl:NamedIndividual ,
+                  :Facility ,
+                  :TrainingCentre .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PeterKrawietz
+:PeterKrawietz rdf:type owl:NamedIndividual ,
+                        :Assistant .
+
+
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Red
-:Red rdf:type owl:NamedIndividual .
+:Red rdf:type owl:NamedIndividual ,
+              :Booked ;
+     :hasColor :Red .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#SergioBusquets
+:SergioBusquets rdf:type owl:NamedIndividual ,
+                         :Midfield .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#SouthAmerica
-:SouthAmerica rdf:type owl:NamedIndividual .
+:SouthAmerica rdf:type owl:NamedIndividual ,
+                       :Region .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#VirgilVanDijk
+:VirgilVanDijk rdf:type owl:NamedIndividual ,
+                        :Defensive .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#WayneRooney
+:WayneRooney rdf:type owl:NamedIndividual ,
+                      :Person ,
+                      :PlayerCoach .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Yellow
+:Yellow rdf:type owl:NamedIndividual ,
+                 :Booked .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
