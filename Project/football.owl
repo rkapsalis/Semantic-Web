@@ -30,13 +30,15 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayer
 :hasPlayer rdf:type owl:ObjectProperty ;
-           owl:inverseOf :playsFor .
+           owl:inverseOf :playsFor ;
+           rdfs:domain :Team .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasRegion
 :hasRegion rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
-           rdf:type owl:FunctionalProperty .
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Competition .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isAffiliatedWith
@@ -45,9 +47,18 @@
                   rdf:type owl:SymmetricProperty .
 
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isHeldAt
+:isHeldAt rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :Game ;
+          rdfs:range :Stadium .
+
+
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_Responsible_for
 :is_Responsible_for rdf:type owl:ObjectProperty ;
                     owl:inverseOf :is_officiated_by ;
+                    rdfs:domain :Referee ;
+                    rdfs:range :Game ;
                     owl:propertyDisjointWith :is_officiated_by .
 
 
@@ -55,18 +66,24 @@
 :is_managed_by rdf:type owl:ObjectProperty ;
                owl:inverseOf :manages ;
                rdf:type owl:FunctionalProperty ;
+               rdfs:domain :Team ;
+               rdfs:range :Coach ;
                owl:propertyDisjointWith :manages .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_officiated_by
 :is_officiated_by rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty .
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain :Game ;
+                  rdfs:range :Referee .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_owned_by
 :is_owned_by rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
-             owl:inverseOf :owns .
+             owl:inverseOf :owns ;
+             rdfs:domain :Stadium ;
+             rdfs:range :Club .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#loaned
@@ -77,7 +94,9 @@
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#manages
 :manages rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf owl:topObjectProperty ;
-         rdf:type owl:InverseFunctionalProperty .
+         rdf:type owl:InverseFunctionalProperty ;
+         rdfs:domain :Coach ;
+         rdfs:range :Team .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#owns
@@ -93,7 +112,9 @@
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsAgainst
 :playsAgainst rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf owl:topObjectProperty ;
-              rdf:type owl:TransitiveProperty .
+              rdf:type owl:TransitiveProperty ;
+              rdfs:domain :Team ;
+              rdfs:range :Team .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsFor
@@ -104,9 +125,23 @@
 #    Data properties
 #################################################################
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Assists
+:Assists rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Footballer ;
+         rdfs:range xsd:integer .
+
+
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Capacity
 :Capacity rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf :StadiumDetails .
+          rdfs:subPropertyOf :StadiumDetails ;
+          rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Goals
+:Goals rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Footballer ;
+       rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Name
@@ -115,19 +150,47 @@
       rdfs:range xsd:string .
 
 
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PreferredFoot
+:PreferredFoot rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Footballer ;
+               rdfs:range [ rdf:type rdfs:Datatype ;
+                            owl:oneOf [ rdf:type rdf:List ;
+                                        rdf:first " Both" ;
+                                        rdf:rest [ rdf:type rdf:List ;
+                                                   rdf:first " Right" ;
+                                                   rdf:rest [ rdf:type rdf:List ;
+                                                              rdf:first "Left" ;
+                                                              rdf:rest rdf:nil
+                                                            ]
+                                                 ]
+                                      ]
+                          ] .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ShirtNumber
+:ShirtNumber rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Footballer ;
+             rdfs:range xsd:integer .
+
+
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#StadiumDetails
 :StadiumDetails rdf:type owl:DatatypeProperty ;
-                rdfs:subPropertyOf owl:topDataProperty .
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :Stadium .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Suites
 :Suites rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf :StadiumDetails .
+        rdfs:subPropertyOf :StadiumDetails ;
+        rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasAge
 :hasAge rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf owl:topDataProperty .
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:domain :Person ;
+        rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isEnclosed
@@ -143,13 +206,13 @@
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AllAroundPlayer
 :AllAroundPlayer rdf:type owl:Class ;
                  owl:equivalentClass [ rdf:type owl:Class ;
-                                       owl:unionOf ( [ owl:intersectionOf ( :Defensive
-                                                                            :Midfield
+                                       owl:unionOf ( [ owl:intersectionOf ( :DefensivePlayer
+                                                                            :Midfielder
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ]
-                                                     [ owl:intersectionOf ( :Midfield
-                                                                            :Offensive
+                                                     [ owl:intersectionOf ( :Midfielder
+                                                                            :OffensivePlayer
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ]
@@ -158,24 +221,25 @@
                  rdfs:subClassOf :Position .
 
 
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Assistant
-:Assistant rdf:type owl:Class ;
-           rdfs:subClassOf :Coach .
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AssistantCoach
+:AssistantCoach rdf:type owl:Class ;
+                rdfs:subClassOf :Coaching_staff .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Booked
 :Booked rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Class ;
+                              owl:unionOf ( [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasColor ;
+                                              owl:hasValue :Red
+                                            ]
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasColor ;
+                                              owl:hasValue :Yellow
+                                            ]
+                                          )
+                            ] ;
         rdfs:subClassOf :Played .
-
-
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Center-back
-:Center-back rdf:type owl:Class ;
-             rdfs:subClassOf :Defensive .
-
-
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ChampionsLeague
-:ChampionsLeague rdf:type owl:Class ;
-                 rdfs:subClassOf :Competition .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Club
@@ -190,12 +254,12 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach
 :Coach rdf:type owl:Class ;
-       owl:equivalentClass [ rdf:type owl:Restriction ;
-                             owl:onProperty :manages ;
-                             owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-                             owl:onClass :Team
-                           ] ;
-       rdfs:subClassOf :Coaching_staff .
+       rdfs:subClassOf :Coaching_staff ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :manages ;
+                         owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Team
+                       ] .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff
@@ -204,25 +268,28 @@
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition
-:Competition rdf:type owl:Class .
+:Competition rdf:type owl:Class ;
+             owl:disjointWith :Condition ,
+                              :Stats .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Condition
 :Condition rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CopaLibertadores
-:CopaLibertadores rdf:type owl:Class ;
-                  owl:equivalentClass [ rdf:type owl:Restriction ;
-                                        owl:onProperty :hasRegion ;
-                                        owl:hasValue :SouthAmerica
-                                      ] ;
-                  rdfs:subClassOf :Competition .
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Continent
+:Continent rdf:type owl:Class ;
+           rdfs:subClassOf :Region .
 
 
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Defensive
-:Defensive rdf:type owl:Class ;
-           rdfs:subClassOf :Position .
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf :Region .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DefensivePlayer
+:DefensivePlayer rdf:type owl:Class ;
+                 rdfs:subClassOf :Position .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Facility
@@ -232,33 +299,62 @@
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer
 :Footballer rdf:type owl:Class ;
             rdfs:subClassOf :Person ;
-            owl:disjointWith :Referee .
+            owl:disjointWith :Medical_staff ,
+                             :Referee .
 
 
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Full-back
-:Full-back rdf:type owl:Class ;
-           rdfs:subClassOf :Defensive .
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForClubs
+:ForClubs rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :Competition
+                                                     [ rdf:type owl:Class ;
+                                                       owl:complementOf :ForNationals
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasRegion ;
+                                owl:hasValue :SouthAmerica
+                              ] ;
+          rdfs:subClassOf :Competition ;
+          owl:disjointWith :ForNationals .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForNationals
+:ForNationals rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :Competition
+                                                         [ rdf:type owl:Class ;
+                                                           owl:complementOf :ForClubs
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :isHeldAt ;
+                                    owl:hasValue :Anfield
+                                  ] ;
+              rdfs:subClassOf :Competition .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game
 :Game rdf:type owl:Class ;
-      owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :is_officiated_by ;
-                                                   owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
-                                                   owl:onClass :Referee
-                                                 ]
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :is_officiated_by ;
-                                                   owl:maxQualifiedCardinality "5"^^xsd:nonNegativeInteger ;
-                                                   owl:onClass :Referee
-                                                 ]
-                                               ) ;
-                            rdf:type owl:Class
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :is_officiated_by ;
-                            owl:allValuesFrom :Referee
-                          ] .
+      rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                               owl:onProperty :is_officiated_by ;
+                                               owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                               owl:onClass :Referee
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :is_officiated_by ;
+                                               owl:maxQualifiedCardinality "5"^^xsd:nonNegativeInteger ;
+                                               owl:onClass :Referee
+                                             ]
+                                           ) ;
+                        rdf:type owl:Class
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :is_officiated_by ;
+                        owl:allValuesFrom :Referee
+                      ] .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Goalkeeper
@@ -286,9 +382,9 @@
                rdfs:subClassOf :Staff .
 
 
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Midfield
-:Midfield rdf:type owl:Class ;
-          rdfs:subClassOf :Position .
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Midfielder
+:Midfielder rdf:type owl:Class ;
+            rdfs:subClassOf :Position .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#National
@@ -337,9 +433,9 @@
            owl:disjointWith :Played .
 
 
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Offensive
-:Offensive rdf:type owl:Class ;
-           rdfs:subClassOf :Position .
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#OffensivePlayer
+:OffensivePlayer rdf:type owl:Class ;
+                 rdfs:subClassOf :Position .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person
@@ -364,10 +460,10 @@
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Position
 :Position rdf:type owl:Class ;
           owl:equivalentClass [ rdf:type owl:Class ;
-                                owl:unionOf ( :Defensive
+                                owl:unionOf ( :DefensivePlayer
                                               :Goalkeeper
-                                              :Midfield
-                                              :Offensive
+                                              :Midfielder
+                                              :OffensivePlayer
                                             )
                               ] ;
           rdfs:subClassOf :Footballer .
@@ -375,11 +471,11 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Referee
 :Referee rdf:type owl:Class ;
-         owl:equivalentClass [ rdf:type owl:Restriction ;
-                               owl:onProperty :is_Responsible_for ;
-                               owl:someValuesFrom :Game
-                             ] ;
-         rdfs:subClassOf :Person .
+         rdfs:subClassOf :Person ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :is_Responsible_for ;
+                           owl:someValuesFrom :Game
+                         ] .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Region
@@ -406,12 +502,11 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Stadium
 :Stadium rdf:type owl:Class ;
-         owl:equivalentClass [ rdf:type owl:Restriction ;
-                               owl:onProperty :is_owned_by ;
-                               owl:allValuesFrom :Club
-                             ] ;
-         rdfs:subClassOf :Facility ;
-         owl:disjointWith :TrainingCentre .
+         rdfs:subClassOf :Facility ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :is_owned_by ;
+                           owl:allValuesFrom :Club
+                         ] .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Staff
@@ -437,7 +532,7 @@
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :is_managed_by ;
-                            owl:someValuesFrom :Coaching_staff
+                            owl:someValuesFrom :Coach
                           ] .
 
 
@@ -455,18 +550,20 @@
                 rdfs:subClassOf :Facility .
 
 
-###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Wing-back
-:Wing-back rdf:type owl:Class ;
-           rdfs:subClassOf :Defensive .
-
-
 #################################################################
 #    Individuals
 #################################################################
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Alisson
 :Alisson rdf:type owl:NamedIndividual ,
-                  :Goalkeeper .
+                  :Footballer ,
+                  :Goalkeeper ,
+                  :Person .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AndrewMassey
+:AndrewMassey rdf:type owl:NamedIndividual ,
+                       :Medical_staff .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Anfield
@@ -477,12 +574,42 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Argentina
 :Argentina rdf:type owl:NamedIndividual ,
-                    :Region .
+                    :Country .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona
 :Barcelona rdf:type owl:NamedIndividual ,
-                    :Club .
+                    :Club ,
+                    :Team .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona_vs_Liverpool
+:Barcelona_vs_Liverpool rdf:type owl:NamedIndividual ,
+                                 :Game .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ChampionsLeague
+:ChampionsLeague rdf:type owl:NamedIndividual ,
+                          :Competition ,
+                          :ForClubs .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CopaLibertadores
+:CopaLibertadores rdf:type owl:NamedIndividual ,
+                           :Competition ,
+                           :ForClubs .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DivockOrigi
+:DivockOrigi rdf:type owl:NamedIndividual ,
+                      :Footballer ,
+                      :NotPlayed .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Euro
+:Euro rdf:type owl:NamedIndividual ,
+               :Competition ,
+               :ForNationals .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#JonathanMoss
@@ -493,18 +620,22 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#JürgenKlopp
 :JürgenKlopp rdf:type owl:NamedIndividual ,
-                      :Manager .
+                      :Coaching_staff ,
+                      :Manager ,
+                      :Person .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#LionelMessi
 :LionelMessi rdf:type owl:NamedIndividual ,
                       :Footballer ,
+                      :OffensivePlayer ,
                       :Person .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool
 :Liverpool rdf:type owl:NamedIndividual ,
-                    :Club .
+                    :Club ,
+                    :Team .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Melwood
@@ -515,7 +646,9 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PeterKrawietz
 :PeterKrawietz rdf:type owl:NamedIndividual ,
-                        :Assistant .
+                        :AssistantCoach ,
+                        :Coaching_staff ,
+                        :Person .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Red
@@ -526,21 +659,34 @@
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#SergioBusquets
 :SergioBusquets rdf:type owl:NamedIndividual ,
-                         :Midfield .
+                         :Footballer ,
+                         :Midfielder ,
+                         :Person .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#SouthAmerica
 :SouthAmerica rdf:type owl:NamedIndividual ,
-                       :Region .
+                       :Continent .
+
+
+###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Thomas_Müller
+:Thomas_Müller rdf:type owl:NamedIndividual ,
+                        :AllAroundPlayer ,
+                        :Footballer ,
+                        :Person .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#VirgilVanDijk
 :VirgilVanDijk rdf:type owl:NamedIndividual ,
-                        :Defensive .
+                        :DefensivePlayer ,
+                        :Footballer ,
+                        :Person .
 
 
 ###  http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#WayneRooney
 :WayneRooney rdf:type owl:NamedIndividual ,
+                      :Coaching_staff ,
+                      :Footballer ,
                       :Person ,
                       :PlayerCoach .
 
