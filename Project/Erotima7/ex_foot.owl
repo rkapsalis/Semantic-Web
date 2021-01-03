@@ -1,0 +1,1508 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#"
+     xml:base="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#awayTeam -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#awayTeam">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#includes"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#booked -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#booked">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#played"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#cooperatesWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#cooperatesWith">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#dividedInto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#dividedInto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasCondition">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Condition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayer">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsFor"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPosition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPosition">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasRegion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasRegion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Region"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasTeammate -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasTeammate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#homeTeam -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#homeTeam">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#includes"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#includes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#includes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isAffiliatedWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isAffiliatedWith">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isHeldAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isHeldAt">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Stadium"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isLocatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isLocatedIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isPlayedAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isPlayedAt">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_Responsible_for -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_Responsible_for">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_officiated_by"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Referee"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_officiated_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_managed_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_managed_by">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#manages"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#manages"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_officiated_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_officiated_by">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Referee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_owned_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_owned_by">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#owns"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Stadium"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Club"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#manages -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#manages">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#owns -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#owns">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Club"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Stadium"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#participates -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#participates">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#played -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#played">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsAgainst -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsAgainst">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsFor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#sentOff -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#sentOff">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#booked"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Age -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Age">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Assists -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Assists">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Capacity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Capacity">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#StadiumDetails"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Card -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Card">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Red</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Yellow</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Goals -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Goals">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Height -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Height">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Name">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Nationality -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Nationality">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PreferredFoot -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PreferredFoot">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Both</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Left</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Right</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ShirtNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ShirtNumber">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#StadiumDetails -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#StadiumDetails">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Stadium"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Suites -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Suites">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#StadiumDetails"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isAnnual -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isAnnual">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isEnclosed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isEnclosed">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#StadiumDetails"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CB"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AllAroundPlayer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AllAroundPlayer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DefensivePlayer"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Midfielder"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Midfielder"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#OffensivePlayer"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AssistantCoach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AssistantCoach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#BoxToBox -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#BoxToBox">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Playmaker"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CB -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CB">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CM"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DM"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Centre_forward -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Centre_forward">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#City -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#City">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Club -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Club">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#owns"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Facility"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayer"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Goalkeeper"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayer"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">11</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#participates"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForClubs"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#cooperatesWith"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AssistantCoach"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#manages"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Staff"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Medical_staff"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Staff"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasRegion"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Region"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Condition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Condition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Condition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Continent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Continent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Region"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#dividedInto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Country"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Country">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DefensivePlayer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DefensivePlayer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CB"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#FB"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#FB -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#FB">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Facility -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Facility">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Stadium"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#TrainingCentre"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#cooperatesWith"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#playsFor"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Medical_staff"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Referee"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForClubs -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForClubs">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForNationals"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isAnnual"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasRegion"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Continent"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Country"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForNationals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForNationals -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForNationals">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForClubs"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#includes"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_officiated_by"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Referee"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_officiated_by"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:maxQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Referee"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isPlayedAt"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Stadium"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_officiated_by"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Referee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Goalkeeper -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Goalkeeper">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Manager -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Manager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Medical_staff -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Medical_staff">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Staff"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Staff"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Midfielder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Midfielder">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AM"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CM"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DM"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#National -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#National">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayer"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">11</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayer"/>
+                        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">22</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#OffensivePlayer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#OffensivePlayer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Centre_forward"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Second_striker"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Winger"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerCoach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerCoach">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Playmaker -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Playmaker">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Referee -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Referee">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_Responsible_for"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Region -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Region">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#City"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Continent"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Country"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Second_striker -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Second_striker">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Stadium -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Stadium">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Facility"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_owned_by"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Club"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Staff -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Staff">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Medical_staff"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Club"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#National"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayer"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#is_managed_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coach"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#participates"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#hasPlayer"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Goalkeeper"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#TrainingCentre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#TrainingCentre">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#isEnclosed"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Facility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Winger -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Winger">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerPosition"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Alisson -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Alisson">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Goalkeeper"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <hasTeammate rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Thiago"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+        <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</Age>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.91</Height>
+        <PreferredFoot>Right</PreferredFoot>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AndrewMassey -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AndrewMassey">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Medical_staff"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AndrewRobertson -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AndrewRobertson">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#FB"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <booked rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona_vs_Liverpool"/>
+        <hasTeammate rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Alisson"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+        <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</Age>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.78</Height>
+        <PreferredFoot>Left</PreferredFoot>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Anfield -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Anfield">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Facility"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Stadium"/>
+        <is_owned_by rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+        <Capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53394</Capacity>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Argentina -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Argentina">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Country"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#National"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Asia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Asia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Continent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Club"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+        <participates rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ChampionsLeague"/>
+        <playsAgainst rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona_vs_Liverpool -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona_vs_Liverpool">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Game"/>
+        <awayTeam rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+        <homeTeam rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona"/>
+        <isHeldAt rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Anfield"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ChampionsLeague -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ChampionsLeague">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForClubs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CopaLibertadores -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CopaLibertadores">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForClubs"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DiogoJota -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DiogoJota">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Centre_forward"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DivockOrigi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DivockOrigi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <hasCondition rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Injured"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+        <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</Age>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Euro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Euro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ForNationals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#EuropaLeague -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#EuropaLeague">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Competition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Europe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Europe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Continent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#FullyFit -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#FullyFit"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Injured -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Injured"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#JonathanMoss -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#JonathanMoss">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Referee"/>
+        <is_Responsible_for rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona_vs_Liverpool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#JürgenKlopp -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#JürgenKlopp">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Manager"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Staff"/>
+        <cooperatesWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PeterKrawietz"/>
+        <manages rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#LionelMessi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#LionelMessi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Winger"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona"/>
+        <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</Age>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Club"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Team"/>
+        <hasPlayer rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Alisson"/>
+        <hasPlayer rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#VirgilVanDijk"/>
+        <isAffiliatedWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona"/>
+        <owns rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Melwood"/>
+        <participates rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#ChampionsLeague"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Melwood -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Melwood">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Facility"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#TrainingCentre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PeterKrawietz -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PeterKrawietz">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AssistantCoach"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <cooperatesWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AndrewMassey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PhilippeCoutinho -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PhilippeCoutinho">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AM"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#RobertoFirmino -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#RobertoFirmino">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Second_striker"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#SergioBusquets -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#SergioBusquets">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#DM"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#SouthAmerica -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#SouthAmerica">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Continent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Southampton -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Southampton">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Club"/>
+        <isAffiliatedWith rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#TerStegen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#TerStegen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Goalkeeper"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Barcelona"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Thiago -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Thiago">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CM"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <hasCondition rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Tired"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Thomas_Müller -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Thomas_Müller">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#AllAroundPlayer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Tired -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Tired"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#VirgilVanDijk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#VirgilVanDijk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CB"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <playsFor rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Liverpool"/>
+        <Age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</Age>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#WayneRooney -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#WayneRooney">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Coaching_staff"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Footballer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#PlayerCoach"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CB"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Centre_forward"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#FB"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#CB"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#FB"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Second_striker"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#Alisson"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#TerStegen"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
