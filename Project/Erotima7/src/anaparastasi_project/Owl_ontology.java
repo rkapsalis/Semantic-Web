@@ -8,18 +8,18 @@ package anaparastasi_project;
 import java.awt.CardLayout;
 import java.awt.event.ItemEvent;
 import java.io.File;
+import static java.lang.reflect.Array.set;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.DefaultComboBoxModel;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import org.apache.jena.rdf.model.*;
-
 
 import org.apache.jena.ontology.*;
 
 import org.apache.jena.util.iterator.ExtendedIterator;
-
 
 import static org.apache.jena.ontology.OntModelSpec.OWL_MEM;
 import static org.apache.jena.rdf.model.impl.RDFDefaultErrorHandler.logger;
@@ -42,9 +42,9 @@ public class Owl_ontology extends javax.swing.JFrame {
      */
     public Owl_ontology() {
         initComponents();
-         myInitComponents();
+        myInitComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,6 +68,8 @@ public class Owl_ontology extends javax.swing.JFrame {
         class_ComboBox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         subclass_ComboBox = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -79,7 +81,8 @@ public class Owl_ontology extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jPanel6 = new javax.swing.JPanel();
+        jButton6 = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -192,11 +195,26 @@ public class Owl_ontology extends javax.swing.JFrame {
         jLabel4.setText("Please select one subclass:");
 
         subclass_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        subclass_ComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                subclass_ComboBoxItemStateChanged(evt);
+            }
+        });
         subclass_ComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subclass_ComboBoxActionPerformed(evt);
             }
         });
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Instances"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -214,8 +232,11 @@ public class Owl_ontology extends javax.swing.JFrame {
                         .addComponent(class_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(214, 214, 214)
-                        .addComponent(subclass_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(203, Short.MAX_VALUE))
+                        .addComponent(subclass_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +249,9 @@ public class Owl_ontology extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(subclass_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jLabel4.setVisible(false);
@@ -331,135 +354,248 @@ public class Owl_ontology extends javax.swing.JFrame {
 
         MainPanel.add(jPanel5, "card6");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox2ItemStateChanged(evt);
-            }
-        });
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        jPanel6.setBackground(new java.awt.Color(221, 89, 1));
+
+        jButton6.setBackground(new java.awt.Color(17, 91, 238));
+        jButton6.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("Home");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(235, 235, 235)
+                .addComponent(jButton6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton6)
+                .addContainerGap())
+        );
+
+        jButton6.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(212, 212, 212)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(284, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(342, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 22, Short.MAX_VALUE)
-                    .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 22, Short.MAX_VALUE)))
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        jComboBox2.setVisible(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-            card.show(MainPanel, "card6");
-            jComboBox2.setVisible(true);
+        CardLayout card = (CardLayout) MainPanel.getLayout();
+        card.show(MainPanel, "card6");
+        jButton6.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-            card.show(MainPanel, "card5");
-            jComboBox2.setVisible(true);
+        CardLayout card = (CardLayout) MainPanel.getLayout();
+        card.show(MainPanel, "card5");
+        jButton6.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         CardLayout card = (CardLayout)MainPanel.getLayout();
-            card.show(MainPanel, "card3");
-           
-             jComboBox2.setVisible(true);
-               ExtendedIterator<OntClass> iter = model.listHierarchyRootClasses();
-            ArrayList<String> class_array = new ArrayList<String>();
-            while ( iter.hasNext()){
-                OntClass essaClasse = (OntClass) iter.next();
-                String vClasse = essaClasse.getLocalName();
-                if(vClasse != null){
-                 System.out.println(vClasse);
-                 class_array.add(vClasse);
-                }
+        CardLayout card = (CardLayout) MainPanel.getLayout();
+        card.show(MainPanel, "card3");
+
+        jButton6.setVisible(true);
+        InfModel inf1 = ModelFactory.createRDFSModel(model);
+        ArrayList<String> class_array = new ArrayList<String>();
+        String sth1 = model.getOntClass(base + "Game").getLocalName().toString();
+        class_array.add(sth1);
+        ExtendedIterator<OntClass> iter = model.listHierarchyRootClasses();
+
+        while (iter.hasNext()) {
+            OntClass essaClasse = (OntClass) iter.next();
+            String vClasse = essaClasse.getLocalName();
+
+            if (vClasse != null) {
+                System.out.println(vClasse);
+                class_array.add(vClasse);
             }
-            String[] items = new String[class_array.size()];
-                class_array.toArray(items);
+        }
+        String[] items = new String[class_array.size()];
+        class_array.toArray(items);
 
-                class_ComboBox.setModel(new DefaultComboBoxModel<String>(items));
-             
-             
-             
+        class_ComboBox.setModel(new DefaultComboBoxModel<String>(items));
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
-        // TODO add your handling code here:
-        
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-            CardLayout card = (CardLayout)MainPanel.getLayout();
-            card.show(MainPanel, "card3");
-            jComboBox2.setVisible(true);
-           
-    }//GEN-LAST:event_jComboBox2ItemStateChanged
-    }
     
+
     private void class_ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_class_ComboBoxItemStateChanged
         // TODO add your handling code here:
-        jLabel4.setVisible(true);
-        subclass_ComboBox.setVisible(true);
+        flag = false;
+        jLabel4.setVisible(false);
+        subclass_ComboBox.setVisible(false);
         
+        String selected_class = class_ComboBox.getSelectedItem().toString();
+        OntClass foot = model.getOntClass(base + selected_class);
+        ArrayList<String> subclass_array = new ArrayList<String>();
+        DefaultTableModel table_model = (DefaultTableModel) jTable3.getModel();
+        table_model.setRowCount(0);
+        ExtendedIterator instances = foot.listInstances();
+
+        while (instances.hasNext()) {
+            Individual thisInstance = (Individual) instances.next();
+            String individual = thisInstance.getLocalName().toString();
+            System.out.println("  Found instance: " + thisInstance.toString());
+            if(table_model.getRowCount()==0){              
+              table_model.addRow(new Object[]{individual});
+            }
+            for (int i = 0; i < table_model.getRowCount(); i++) {
+                
+                String obj = table_model.getValueAt(i, 0).toString();
+                if(obj.equals(individual)){
+                 break;
+                }
+                if(i == table_model.getRowCount()-1){
+                    System.out.println("obj");
+                    System.out.println(obj);
+                    System.out.println("individual");
+                    System.out.println(individual);
+                  table_model.addRow(new Object[]{individual});
+                 
+                }
+                
+            }
+             
+        }
+
+        for (Iterator<OntClass> i = foot.listSubClasses(); i.hasNext();) {
+            String c = i.next().getLocalName().toString();
+            if (c != null) {
+                flag = true;
+                OntClass football = model.getOntClass(base + c);
+                for (Iterator<OntClass> j = football.listSubClasses(); j.hasNext();) {
+                    String b = j.next().getLocalName().toString();
+                    subclass_array.add(b);
+                    System.out.println(b);
+                    OntClass sub2 = model.getOntClass(base + b);
+                    for (Iterator<OntClass> k = sub2.listSubClasses(); k.hasNext();) {
+                        String a = k.next().getLocalName().toString();
+                        subclass_array.add(a);
+                        System.out.println(a);
+                        OntClass sub3 = model.getOntClass(base + a);
+                        for (Iterator<OntClass> l = sub3.listSubClasses(); l.hasNext();) {
+                            String d = l.next().getLocalName().toString();
+                            subclass_array.add(d);
+                            System.out.println(d);
+
+                        }
+                    }
+                }
+
+                System.out.println(c);
+                subclass_array.add(c);
+            }
+        }
+        if (flag) {
+            jLabel4.setVisible(true);
+            subclass_ComboBox.setVisible(true);
+        }
+        String[] items = new String[subclass_array.size()];
+        subclass_array.toArray(items);
+
+        subclass_ComboBox.setModel(new DefaultComboBoxModel<String>(items));
     }//GEN-LAST:event_class_ComboBoxItemStateChanged
 
     private void subclass_ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subclass_ComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_subclass_ComboBoxActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-            card.show(MainPanel, "card4");
-            jComboBox2.setVisible(true);
+        CardLayout card = (CardLayout) MainPanel.getLayout();
+        card.show(MainPanel, "card4");
+        jButton6.setVisible(true);
+     
     }//GEN-LAST:event_jButton2ActionPerformed
+    
+    
+    private void subclass_ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_subclass_ComboBoxItemStateChanged
+        // TODO add your handling code here:
+        String selected_subclass = subclass_ComboBox.getSelectedItem().toString();
+        DefaultTableModel table_model = (DefaultTableModel) jTable3.getModel();
+        table_model.setRowCount(0);
+        OntClass foot = model.getOntClass(base + selected_subclass);
+        ExtendedIterator instances = foot.listInstances();
+
+        while (instances.hasNext()) {
+            Individual thisInstance = (Individual) instances.next();
+            String individual = thisInstance.getLocalName().toString();
+            System.out.println("  Found instance: " + thisInstance.toString());
+            if(table_model.getRowCount()==0){
+                table_model.addRow(new Object[]{individual});
+            }
+            for (int i = 0; i < table_model.getRowCount(); i++) {
+
+                String obj = table_model.getValueAt(i, 0).toString();
+                if(obj.equals(individual)){
+                    break;
+                }
+                if(i == table_model.getRowCount()-1){
+
+                    System.out.println(obj);
+                    System.out.println(individual);
+                    table_model.addRow(new Object[]{individual});
+
+                }
+
+            }
+
+        }
+    }//GEN-LAST:event_subclass_ComboBoxItemStateChanged
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout) MainPanel.getLayout();
+        card.show(MainPanel, "card2");
+        jButton6.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
     private final static String PANEL3 = "panel 3";
     private final static String PANEL1 = "panel 1";
-    private final static String PANEL2 = "panel 2";   
+    private final static String PANEL2 = "panel 2";
     private final static String PANEL4 = "panel 4";
-    protected JPanel initFields() { 
-         JPanel panel1_1 = new JPanel();
-          return panel1_1;
+
+    protected JPanel initFields() {
+        JPanel panel1_1 = new JPanel();
+        return panel1_1;
     }
 //user
-     public void myInitComponents() {
-         
-         
-         
-     } 
-    
+
+    public void myInitComponents() {
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -470,19 +606,19 @@ public class Owl_ontology extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-        //load file and create model
-        model = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM);		
-        model.read("ex_foot.owl", null);
-        base = "http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#";
-         
-        //create inference model
-        InfModel inf = ModelFactory.createRDFSModel(model); 
-        OntModel new_base = ModelFactory.createOntologyModel( OWL_MEM );
-        OntClass foot = model.getOntClass( base + "Competition" );
-        ExtendedIterator classes = model.listClasses();
-        String sth = model.listHierarchyRootClasses().toString();
-        System.out.println(sth);
-        
+            //load file and create model
+            model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+            model.read("footBALL.owl", null);
+            base = "http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#";
+
+            //create inference model
+            //InfModel inf = ModelFactory.createRDFSModel(model); 
+            // OntModel new_base = ModelFactory.createOntologyModel( OWL_MEM );
+            OntClass foot = model.getOntClass(base + "Competition");
+            ExtendedIterator classes = model.listClasses();
+            String sth = model.listHierarchyRootClasses().toString();
+            System.out.println(sth);
+
 //        for (ExtendedIterator<OntClass> i =  new_base.listHierarchyRootClasses(); i.hasNext();) {
 //            OntClass ontClass = i.next();
 //            System.out.println(ontClass);
@@ -513,27 +649,26 @@ public class Owl_ontology extends javax.swing.JFrame {
 //			  if (c.getURI() != null)
 //			  System.out.println( c.getURI() );
 //			}
-        ExtendedIterator<OntClass> iter = model.listHierarchyRootClasses();
-       
-    while ( iter.hasNext()){
-        OntClass essaClasse = (OntClass) iter.next();
-        String vClasse = essaClasse.getLocalName();
-        if(vClasse != null){
-         System.out.println(vClasse);
-        }
-        //System.out.println(iter.next());
-    }
+            ExtendedIterator<OntClass> iter = model.listHierarchyRootClasses();
+
+            while (iter.hasNext()) {
+                OntClass essaClasse = (OntClass) iter.next();
+                String vClasse = essaClasse.getLocalName();
+                if (vClasse != null) {
+                    System.out.println(vClasse);
+                }
+                //System.out.println(iter.next());
+            }
 //        
-         } catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
+
 //       OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 //       File file = new File ("ex_foot.owl");
 //       OWLOntology ont = manager.loadOntologyFromOntologyDocument(IRI.create(file));
 //       //OWLOntology ontology = manager.loadOntology(IRI.create(iri));
 //       OWLDataFactory owlDF = manager.getOWLDataFactory();
-      
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -561,6 +696,8 @@ public class Owl_ontology extends javax.swing.JFrame {
     }
     protected static String base;
     protected static OntModel model;
+    protected boolean flag;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainPanel;
     private javax.swing.JComboBox<String> class_ComboBox;
@@ -569,8 +706,8 @@ public class Owl_ontology extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -586,6 +723,9 @@ public class Owl_ontology extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> subclass_ComboBox;
     // End of variables declaration//GEN-END:variables
