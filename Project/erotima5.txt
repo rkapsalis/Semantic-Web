@@ -1,0 +1,57 @@
+SELECT ?team, ?competition
+WHERE
+{
+?team rdf:type :Club.
+?team :isLocatedIn :UK.
+OPTIONAL
+{
+?team :participates ?competition
+}
+}
+ORDER BY ?team
+
+
+PREFIX : <http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#>
+SELECT ?name ?age
+WHERE
+{
+{?name rdf:type :DefensivePlayer} UNION {?name rdf:type :Midfielder}
+?name :Age ?age.
+FILTER(?age >25)
+}
+ORDER BY ?age
+
+
+PREFIX : <http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#>
+SELECT ?stadium (MAX(?capacity) AS?max_capacity)
+WHERE
+{
+{?stadium rdf:type :Stadium} 
+?stadium :capacity ?capacity.
+?stadium :is_owned_by ?team.
+?team :participates :ChampionsLeague
+}
+
+
+PREFIX : <http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#>
+SELECT ?player ?condition ?goals
+WHERE
+{
+{?player rdf:type :Footballer} 
+?player :playsFor :Liverpool.
+?player :hasCondition ?condition.
+OPTIONAL
+{
+?player :Goals ?goals
+}
+FILTER(?condition != "FullyFit")
+}
+
+PREFIX : <http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#>
+SELECT DISTINCT ?referee
+WHERE
+{
+{?referee rdf:type :Referee} 
+?referee :is_Responsible_for ?game.
+?game :includes :Barcelona.
+}
