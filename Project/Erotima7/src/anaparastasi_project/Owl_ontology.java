@@ -5,31 +5,36 @@
  */
 package anaparastasi_project;
 
+
 import java.awt.CardLayout;
 import java.awt.event.ItemEvent;
 import java.io.File;
 import static java.lang.reflect.Array.set;
+import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.DefaultComboBoxModel;
-
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import static org.apache.jena.assembler.Assembler.ontModel;
 import org.apache.jena.rdf.model.*;
-
 import org.apache.jena.ontology.*;
-
 import org.apache.jena.util.iterator.ExtendedIterator;
-
+//import openllet.jena.
+import openllet.jena.PelletReasonerFactory;
 import static org.apache.jena.ontology.OntModelSpec.OWL_MEM;
+import org.apache.jena.query.*;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.ResultSetFormatter;
 import static org.apache.jena.rdf.model.impl.RDFDefaultErrorHandler.logger;
-import static org.semanticweb.owlapi.apibinding.OWLFunctionalSyntaxFactory.IRI;
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import static org.semanticweb.owlapi.krss1.parser.NameResolverStrategy.IRI;
+import org.apache.jena.reasoner.Reasoner;
+import org.apache.jena.reasoner.ReasonerRegistry;
+import org.apache.jena.reasoner.ValidityReport;
 
-import org.semanticweb.owlapi.model.OWLDataFactory;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
+
 
 /**
  *
@@ -277,8 +282,18 @@ public class Owl_ontology extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Submit");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -328,6 +343,8 @@ public class Owl_ontology extends javax.swing.JFrame {
 
         MainPanel.add(jPanel3, "card4");
 
+        jPanel4.setBackground(new java.awt.Color(220, 113, 7));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -340,6 +357,8 @@ public class Owl_ontology extends javax.swing.JFrame {
         );
 
         MainPanel.add(jPanel4, "card5");
+
+        jPanel5.setBackground(new java.awt.Color(220, 113, 7));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -425,95 +444,82 @@ public class Owl_ontology extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout) MainPanel.getLayout();
         card.show(MainPanel, "card3");
-
         jButton6.setVisible(true);
-        InfModel inf1 = ModelFactory.createRDFSModel(model);
-        ArrayList<String> class_array = new ArrayList<String>();
-        String sth1 = model.getOntClass(base + "Game").getLocalName().toString();
-        class_array.add(sth1);
-        ExtendedIterator<OntClass> iter = model.listHierarchyRootClasses();
-
-        while (iter.hasNext()) {
-            OntClass essaClasse = (OntClass) iter.next();
-            String vClasse = essaClasse.getLocalName();
-
-            if (vClasse != null) {
-                System.out.println(vClasse);
-                class_array.add(vClasse);
-            }
-        }
-        String[] items = new String[class_array.size()];
-        class_array.toArray(items);
-
-        class_ComboBox.setModel(new DefaultComboBoxModel<String>(items));
-
-
+        InfModel inf1 = ModelFactory.createRDFSModel(model);        
+        addClasses(class_ComboBox);
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
 
     private void class_ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_class_ComboBoxItemStateChanged
         // TODO add your handling code here:
         flag = false;
         jLabel4.setVisible(false);
         subclass_ComboBox.setVisible(false);
-        
+
         String selected_class = class_ComboBox.getSelectedItem().toString();
-        OntClass foot = model.getOntClass(base + selected_class);
+        OntClass foot = m.getOntClass(base + selected_class);
         ArrayList<String> subclass_array = new ArrayList<String>();
         DefaultTableModel table_model = (DefaultTableModel) jTable3.getModel();
         table_model.setRowCount(0);
         ExtendedIterator instances = foot.listInstances();
-
+        
         while (instances.hasNext()) {
             Individual thisInstance = (Individual) instances.next();
             String individual = thisInstance.getLocalName().toString();
             System.out.println("  Found instance: " + thisInstance.toString());
-            if(table_model.getRowCount()==0){              
-              table_model.addRow(new Object[]{individual});
+            if (table_model.getRowCount() == 0) {
+                table_model.addRow(new Object[]{individual});
             }
             for (int i = 0; i < table_model.getRowCount(); i++) {
-                
+
                 String obj = table_model.getValueAt(i, 0).toString();
-                if(obj.equals(individual)){
-                 break;
+                if (obj.equals(individual)) {
+                    break;
                 }
-                if(i == table_model.getRowCount()-1){
+                if (i == table_model.getRowCount() - 1) {
                     System.out.println("obj");
                     System.out.println(obj);
                     System.out.println("individual");
                     System.out.println(individual);
-                  table_model.addRow(new Object[]{individual});
-                 
-                }
-                
-            }
-             
-        }
+                    table_model.addRow(new Object[]{individual});
 
+                }
+
+            }
+
+        }
+        System.out.println(foot.toString());
+        //printIterator(foot.listSubClasses(), "All super classes of " + foot.getLocalName());
         for (Iterator<OntClass> i = foot.listSubClasses(); i.hasNext();) {
-            String c = i.next().getLocalName().toString();
+            
+            String c = i.next().getLocalName();
             if (c != null) {
                 flag = true;
-                OntClass football = model.getOntClass(base + c);
+                OntClass football = m.getOntClass(base + c);
+                if(football != null){
                 for (Iterator<OntClass> j = football.listSubClasses(); j.hasNext();) {
                     String b = j.next().getLocalName().toString();
                     subclass_array.add(b);
                     System.out.println(b);
-                    OntClass sub2 = model.getOntClass(base + b);
+                    OntClass sub2 = m.getOntClass(base + b);
+                    if(sub2!=null){
                     for (Iterator<OntClass> k = sub2.listSubClasses(); k.hasNext();) {
                         String a = k.next().getLocalName().toString();
                         subclass_array.add(a);
                         System.out.println(a);
-                        OntClass sub3 = model.getOntClass(base + a);
+                        OntClass sub3 = m.getOntClass(base + a);
+                        if(sub3 != null){
                         for (Iterator<OntClass> l = sub3.listSubClasses(); l.hasNext();) {
                             String d = l.next().getLocalName().toString();
                             subclass_array.add(d);
                             System.out.println(d);
 
                         }
+                        }
                     }
                 }
-
+                }
+                }
                 System.out.println(c);
                 subclass_array.add(c);
             }
@@ -537,32 +543,32 @@ public class Owl_ontology extends javax.swing.JFrame {
         CardLayout card = (CardLayout) MainPanel.getLayout();
         card.show(MainPanel, "card4");
         jButton6.setVisible(true);
-     
+        addClasses(jComboBox1);
     }//GEN-LAST:event_jButton2ActionPerformed
-    
-    
+
+
     private void subclass_ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_subclass_ComboBoxItemStateChanged
         // TODO add your handling code here:
         String selected_subclass = subclass_ComboBox.getSelectedItem().toString();
         DefaultTableModel table_model = (DefaultTableModel) jTable3.getModel();
         table_model.setRowCount(0);
-        OntClass foot = model.getOntClass(base + selected_subclass);
+        OntClass foot = m.getOntClass(base + selected_subclass);
         ExtendedIterator instances = foot.listInstances();
 
         while (instances.hasNext()) {
             Individual thisInstance = (Individual) instances.next();
             String individual = thisInstance.getLocalName().toString();
             System.out.println("  Found instance: " + thisInstance.toString());
-            if(table_model.getRowCount()==0){
+            if (table_model.getRowCount() == 0) {
                 table_model.addRow(new Object[]{individual});
             }
             for (int i = 0; i < table_model.getRowCount(); i++) {
 
                 String obj = table_model.getValueAt(i, 0).toString();
-                if(obj.equals(individual)){
+                if (obj.equals(individual)) {
                     break;
                 }
-                if(i == table_model.getRowCount()-1){
+                if (i == table_model.getRowCount() - 1) {
 
                     System.out.println(obj);
                     System.out.println(individual);
@@ -581,10 +587,92 @@ public class Owl_ontology extends javax.swing.JFrame {
         card.show(MainPanel, "card2");
         jButton6.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:     
+        //get input from user
+        String sel_class = jComboBox1.getSelectedItem().toString();
+        String sel_subclass = jComboBox3.getSelectedItem().toString();
+        String new_individual = jTextField1.getText();
+
+        if (sel_subclass.equals("None")) {
+            sel_subclass = sel_class;
+        }
+        //Add instance
+        OntClass sel_sub = model.getOntClass(base + sel_subclass);
+        Individual ind1 = sel_sub.createIndividual(base + new_individual);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        // TODO add your handling code here:
+        getClasses(jComboBox1, jComboBox3);
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
     private final static String PANEL3 = "panel 3";
     private final static String PANEL1 = "panel 1";
     private final static String PANEL2 = "panel 2";
     private final static String PANEL4 = "panel 4";
+
+    protected void addClasses(JComboBox cb) {
+        //InfModel inf1 = ModelFactory.createRDFSModel(model);
+        ArrayList<String> class_array = new ArrayList<String>();
+//        String sth1 = model.getOntClass(base + "Game").getLocalName().toString();
+//        class_array.add(sth1);
+        ExtendedIterator<OntClass> iter = model.listNamedClasses();
+
+        while (iter.hasNext()) {
+            OntClass essaClasse = (OntClass) iter.next();
+            String vClasse = essaClasse.getLocalName();
+            if(essaClasse.toString().indexOf("http") == -1){continue;}
+            
+            if (vClasse != null) {
+                System.out.println(vClasse);
+                class_array.add(vClasse);
+            }
+        }
+        String[] items = new String[class_array.size()];
+        class_array.toArray(items);
+
+        cb.setModel(new DefaultComboBoxModel<String>(items));
+
+    }
+
+    protected void getClasses(JComboBox class_combo, JComboBox subClass_combo) {
+        ArrayList<String> subclass_array = new ArrayList<String>();
+        String selected_class = class_combo.getSelectedItem().toString();
+        OntClass foot = model.getOntClass(base + selected_class);
+        System.out.println(selected_class);
+        for (Iterator<OntClass> i = foot.listSubClasses(); i.hasNext();) {
+            String c = i.next().getLocalName().toString();
+            if (c != null) {
+                flag = true;
+                OntClass football = model.getOntClass(base + c);
+                System.out.println(c);
+                for (Iterator<OntClass> j = football.listSubClasses(); j.hasNext();) {
+                    String b = j.next().getLocalName().toString();
+                    subclass_array.add(b);
+                    System.out.println(b);
+                    OntClass sub2 = model.getOntClass(base + b);
+                    for (Iterator<OntClass> k = sub2.listSubClasses(); k.hasNext();) {
+                        String a = k.next().getLocalName().toString();
+                        subclass_array.add(a);
+                        System.out.println(a);
+                        OntClass sub3 = model.getOntClass(base + a);
+                        for (Iterator<OntClass> l = sub3.listSubClasses(); l.hasNext();) {
+                            String d = l.next().getLocalName().toString();
+                            subclass_array.add(d);
+                            System.out.println(d);
+
+                        }
+                    }
+                }
+                subclass_array.add(c);
+            }
+        }
+        String[] items = new String[subclass_array.size()];
+        subclass_array.toArray(items);
+
+        subClass_combo.setModel(new DefaultComboBoxModel<String>(items));
+    }
 
     protected JPanel initFields() {
         JPanel panel1_1 = new JPanel();
@@ -595,7 +683,21 @@ public class Owl_ontology extends javax.swing.JFrame {
     public void myInitComponents() {
 
     }
+   public static void printIterator(final Iterator<?> i, final String header)
+	{
+		System.out.println(header);
+		for (int c = 0; c < header.length(); c++)
+			System.out.print("=");
+		System.out.println();
 
+		if (i.hasNext())
+			while (i.hasNext())
+				System.out.println(i.next());
+		else
+			System.out.println("<EMPTY>");
+
+		System.out.println();
+	}
     /**
      * @param args the command line arguments
      */
@@ -605,70 +707,138 @@ public class Owl_ontology extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+    //try {
             //load file and create model
-            model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-            model.read("footBALL.owl", null);
+             model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+             model.read("test3.owl",null);
+             m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
+              m.read("test3.owl",null);
+            //model = ModelFactory.createOntologyModel();
+            //model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RULE_INF);
+            
             base = "http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#";
-
-            //create inference model
-            //InfModel inf = ModelFactory.createRDFSModel(model); 
+            m.setStrictMode(false);
+//
+//           Reasoner reasoner = ReasonerRegistry.getOWLReasoner();
+//            reasoner = reasoner.bindSchema(model);
+//            OntModelSpec ontModelSpec = OntModelSpec.OWL_MEM;
+//           
+//            ontModelSpec.setReasoner(reasoner);
+//    // Create ontology model with reasoner support
+//            ontModel = ModelFactory.createOntologyModel(ontModelSpec, model);
+////             ontModel.add(model);
+////             model.rebind();
+////            //create inference model
+//            InfModel inf = ModelFactory.createRDFSModel(model); 
+//            ValidityReport validity = inf.validate();
+//            if (validity.isValid()) {
+//    System.out.println("OK");
+//} else {
+//    System.out.println("Conflicts");
+//    for (Iterator i = validity.getReports(); i.hasNext(); ) {
+//        System.out.println(" - " + i.next());
+//    }
+//}
             // OntModel new_base = ModelFactory.createOntologyModel( OWL_MEM );
-            OntClass foot = model.getOntClass(base + "Competition");
-            ExtendedIterator classes = model.listClasses();
-            String sth = model.listHierarchyRootClasses().toString();
+//            
+           final OntClass foot = m.getOntClass(base + "Person");
+        //printIterator(foot.listSubClasses(), "All super classes of " + foot.getLocalName());
+           final Iterator<?> i = foot.listInstances();
+		while (i.hasNext())
+		{
+			final Individual ind = (Individual) i.next();
+
+//			// get the info about this specific _individual
+//			final String name = ((Literal) ind.getPropertyValue(foafName)).getString();
+//			final Resource type = ind.getRDFType();
+//			final Resource homepage = (Resource) ind.getPropertyValue(workHomepage);
+//
+//			// print the results
+//			System.out.println("Name: " + name);
+//			System.out.println("Type: " + type.getLocalName());
+//			if (homepage == null)
+//				System.out.println("Homepage: Unknown");
+//			else
+//				System.out.println("Homepage: " + homepage);
+			System.out.println(ind);
+		}
+       printIterator(foot.listSubClasses(), "All super classes of " + foot.getLocalName());
+           ExtendedIterator married = foot.listInstances();
+    
+//            for ( final ExtendedIterator<? extends OntResource> desiredClasssssssss = foot.listInstances(); desiredClasssssssss.hasNext(); ) {
+//
+//                System.out.println(desiredClasssssssss.next().toString());
+//
+//
+//           }
+           String sth = model.listClasses().toString();
             System.out.println(sth);
+            System.out.println("Model size : " + model.size()); 
+           // System.out.println("Model size : " + ontModel.size()); 
+            while(married.hasNext()) {
 
-//        for (ExtendedIterator<OntClass> i =  new_base.listHierarchyRootClasses(); i.hasNext();) {
-//            OntClass ontClass = i.next();
-//            System.out.println(ontClass);
-//            //logger.debug("Base class = " + ontClass);
-//        }
-//        ExtendedIterator instances = foot.listSubClasses();
-//		      while (instances.hasNext()){
-//		        Individual thisInstance = (Individual) instances.next();
-//		        System.out.println("  Found instance: " + thisInstance.toString());
-//		      }
-//            System.out.println(classes);
-//        while (classes.hasNext()) {
-//                OntClass essaClasse = (OntClass) classes.next();
-//
-//                String vClasse = essaClasse.getLocalName().toString();
-//
-//                if (essaClasse.hasSubClass()) {
-//                    System.out.println("Class: " + vClasse);
-//                    OntClass cla = model.getOntClass(base + vClasse);
-//                    for (Iterator i = cla.listSubClasses(); i.hasNext();) {
-//                        OntClass c = (OntClass) i.next();
-//                        System.out.print("   " + c.getLocalName() + " " + "\n");
-//                    }
-//                }
+                OntResource mp = (OntResource)married.next();
+                
+                System.out.println(mp.getURI());
+            } // this code returns 2 individuals with the help of reasoner
+//            OntClass foot2 = ontModel.getOntClass(base + "Staff");
+//            ExtendedIterator married2 = foot2.listInstances();
+//            while(married2.hasNext()) {
+//                OntResource mp1 = (OntResource)married2.next();
+//                System.out.println(mp1.getURI());
+//              
+//            } // 
+//            ExtendedIterator classes = model.listClasses();
+
+//            String queryString = 
+//                    "PREFIX owl: <http://www.w3.org/2002/07/owl#> " +
+//                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
+//                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"+
+//                    "PREFIX : <http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#>" +
+//                     "SELECT *  " +
+//                    "WHERE"+
+//                    "{"+
+//                    "values ?c1 {owl:Thing}"+
+//                    "?c1 ^rdfs:subClassOf ?c2"+
+//                   
+//                    
+//                    "}"
+//                  ;
+
+//                    "SELECT ?name ?age"+
+//                    "WHERE"+
+//                    "{"+
+//                    "{?name rdf:type :DefensivePlayer} UNION {?name rdf:type :Midfielder}"+
+//                    "?name :Age ?age."+
+//                    "FILTER(?age >25)"+
+//                    "}"+
+//                    "ORDER BY ?age";
+//            Query query = QueryFactory.create(queryString);
+//            try (QueryExecution qe = QueryExecutionFactory.create(query, model)) {
+//                ResultSet results =  qe.execSelect();
+//                 for ( ; results.hasNext() ; )
+//			    {
+//                                System.out.println("sth");
+//                             QuerySolution rb1 = results.nextSolution() ;
+//                                System.out.println(rb1.toString());
+//                            }
+//                ResultSetFormatter.out(System.out, (org.apache.jena.query.ResultSet) results, query);
 //            }
-//        for (Iterator<OntClass> i = foot.listSubClasses(); i.hasNext(); ) {
-//			  OntClass c = i.next();
-//			  if (c.getURI() != null)
-//			  System.out.println( c.getURI() );
-//			}
-            ExtendedIterator<OntClass> iter = model.listHierarchyRootClasses();
+//            ExtendedIterator<OntClass> iter = model.listHierarchyRootClasses();
+//
+//            while (iter.hasNext()) {
+//                OntClass essaClasse = (OntClass) iter.next();
+//                String vClasse = essaClasse.getLocalName();
+//                if (vClasse != null) {
+//                    System.out.println(vClasse);
+//                }
+//                //System.out.println(iter.next());
+//            }
+        
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
 
-            while (iter.hasNext()) {
-                OntClass essaClasse = (OntClass) iter.next();
-                String vClasse = essaClasse.getLocalName();
-                if (vClasse != null) {
-                    System.out.println(vClasse);
-                }
-                //System.out.println(iter.next());
-            }
-//        
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-//       OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-//       File file = new File ("ex_foot.owl");
-//       OWLOntology ont = manager.loadOntologyFromOntologyDocument(IRI.create(file));
-//       //OWLOntology ontology = manager.loadOntology(IRI.create(iri));
-//       OWLDataFactory owlDF = manager.getOWLDataFactory();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -697,7 +867,8 @@ public class Owl_ontology extends javax.swing.JFrame {
     protected static String base;
     protected static OntModel model;
     protected boolean flag;
-    
+    protected static OntModel ontModel;
+    protected static OntModel m;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainPanel;
     private javax.swing.JComboBox<String> class_ComboBox;
