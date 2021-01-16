@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://www.w3.org/2002/07/owl" uri="www.w3.org/2002/07/owl"/>
+    <system systemId="http://www.w3.org/1999/02/22-rdf-syntax-ns" uri="www.w3.org/1999/02/22-rdf-syntax-ns"/>
+    <system systemId="http://www.w3.org/2000/01/rdf-schema" uri="www.w3.org/2000/01/rdf-schema"/>
+    <system systemId="http://www.w3.org/2003/11/swrl" uri="www.w3.org/2003/11/swrl.xml"/>
+    <system systemId="http://www.w3.org/2003/11/swrlb" uri="www.w3.org/2003/11/swrlb.xml"/>
+    <system systemId="http://swrl.stanford.edu/ontologies/3.3/swrla.owl" uri="swrl.stanford.edu/ontologies/3.3/swrla.owl.xml"/>
+</catalog>

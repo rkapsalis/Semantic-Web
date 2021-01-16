@@ -6,8 +6,13 @@
 package anaparastasi_project;
 
 import java.awt.CardLayout;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -22,7 +27,6 @@ import org.apache.jena.query.*;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
-
 
 /**
  *
@@ -725,7 +729,7 @@ public class Owl_ontology extends javax.swing.JFrame {
         while (instances.hasNext()) {
             Individual thisInstance = (Individual) instances.next();
             String individual = thisInstance.getLocalName();
-            System.out.println("  Found instance: " + thisInstance.toString());
+           
             if (table_model.getRowCount() == 0) {
                 table_model.addRow(new Object[]{individual});
             }
@@ -736,10 +740,7 @@ public class Owl_ontology extends javax.swing.JFrame {
                     break;
                 }
                 if (i == table_model.getRowCount() - 1) {
-                    System.out.println("obj");
-                    System.out.println(obj);
-                    System.out.println("individual");
-                    System.out.println(individual);
+                   
                     table_model.addRow(new Object[]{individual});
                 }
 
@@ -747,8 +748,7 @@ public class Owl_ontology extends javax.swing.JFrame {
 
         }
         getClasses(class_ComboBox, subclass_ComboBox, jLabel4);
-        System.out.println(foot.toString());
-
+        
     }//GEN-LAST:event_class_ComboBoxItemStateChanged
 
     private void subclass_ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subclass_ComboBoxActionPerformed
@@ -775,7 +775,7 @@ public class Owl_ontology extends javax.swing.JFrame {
         while (instances.hasNext()) {
             Individual thisInstance = (Individual) instances.next();
             String individual = thisInstance.getLocalName();
-           
+
             if (table_model.getRowCount() == 0) {
                 table_model.addRow(new Object[]{individual});
             }
@@ -786,7 +786,6 @@ public class Owl_ontology extends javax.swing.JFrame {
                     break;
                 }
                 if (i == table_model.getRowCount() - 1) {
-                   
                     table_model.addRow(new Object[]{individual});
 
                 }
@@ -801,23 +800,33 @@ public class Owl_ontology extends javax.swing.JFrame {
         CardLayout card = (CardLayout) MainPanel.getLayout();
         card.show(MainPanel, "card2");
         jButton6.setVisible(false);
-        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:     
         //get input from user
-        
-        String sel_class = jComboBox1.getSelectedItem().toString();
-        String sel_subclass = jComboBox3.getSelectedItem().toString();
-        String new_individual = jTextField1.getText();
 
-        if (sel_subclass.equals("None")) {
+        String sel_class = jComboBox1.getSelectedItem().toString();
+        String sel_subclass;
+        if (jComboBox3.getSelectedItem() != null) {
+            sel_subclass = jComboBox3.getSelectedItem().toString();
+        } else {
             sel_subclass = sel_class;
         }
+
+        String new_individual = jTextField1.getText();
+
         //Add instance
         OntClass sel_sub = model.getOntClass(base + sel_subclass);
-        Individual ind1 = sel_sub.createIndividual(base + new_individual);
+        Individual ind1 = model.createIndividual(base + new_individual, sel_sub);
+        OutputStream output;
+        try {
+            output = new FileOutputStream("final.owl");
+            model.write(output);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Owl_ontology.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
@@ -829,9 +838,8 @@ public class Owl_ontology extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
-        // TODO add your handling code here:
-       
-        
+        // TODO add your handling code here:     
+
     }//GEN-LAST:event_jComboBox5ActionPerformed
 
     private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
@@ -851,12 +859,12 @@ public class Owl_ontology extends javax.swing.JFrame {
 
     private void jComboBox5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox5ItemStateChanged
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jComboBox5ItemStateChanged
 
     private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jComboBox8ActionPerformed
 
     private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
@@ -865,8 +873,6 @@ public class Owl_ontology extends javax.swing.JFrame {
 
     private void jComboBox8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox8ItemStateChanged
         // TODO add your handling code here:
-        
-
     }//GEN-LAST:event_jComboBox8ItemStateChanged
 
     private void jComboBox6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox6ItemStateChanged
@@ -885,31 +891,30 @@ public class Owl_ontology extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        
+
         final OntClass cls = m.getOntClass(base + jComboBox2.getSelectedItem().toString());
         ExtendedIterator inst = cls.listInstances();
         OntProperty prop = m.createOntProperty(base + jComboBox5.getSelectedItem().toString());
+
         DefaultTableModel table2_model = (DefaultTableModel) jTable1.getModel();
+        String prop_val = jTextField2.getText();
+        prop_val = base + prop_val;
         table2_model.setRowCount(0);
         ArrayList<String> prop_array = new ArrayList<String>();
-        System.out.println("property");
-        System.out.println(prop);
-
+       
         while (inst.hasNext()) { //get class instances
-            OntResource nm1 = (OntResource) inst.next(); 
-            
-            System.out.println(nm1.getProperty(prop, jTextField2.getText()));
-            if (nm1.hasProperty(prop)) { 
-                //check if instance has the selected property
-                System.out.println(nm1.getPropertyValue(prop));
-                prop_array.add(prop.getLocalName());
-                System.out.println(prop);
-                System.out.println(nm1.toString());
+            OntResource nm1 = (OntResource) inst.next();
+            try {
+                if (nm1.getPropertyValue(prop) != null) {
+                    if (prop_val.equals(nm1.getPropertyValue(prop).toString())) {                       
+                       
+                        prop_array.add(prop.getLocalName());
+                        table2_model.addRow(new Object[]{nm1.getLocalName()});
 
-//                if (table2_model.getRowCount() == 0) {
-                    table2_model.addRow(new Object[]{nm1.getLocalName()});
-//                }
-
+                    }
+                   
+                }
+            } catch (Exception EX) {
             }
         }
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -926,11 +931,10 @@ public class Owl_ontology extends javax.swing.JFrame {
         // TODO add your handling code here:
         String sel_property = jComboBox8.getSelectedItem().toString();
         String prop_value = jTextField3.getText();
-        
+
         DefaultTableModel table_model = (DefaultTableModel) jTable2.getModel();
         table_model.setRowCount(0);
-       
-        
+
         String queryString;
         queryString = "PREFIX owl: <http://www.w3.org/2002/07/owl#> "
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
@@ -939,19 +943,19 @@ public class Owl_ontology extends javax.swing.JFrame {
                 + "SELECT ?indi "
                 + "WHERE"
                 + "{"
-                + "?indi :" + sel_property + " :" +prop_value+ ".\n"
+                + "?indi :" + sel_property + " :" + prop_value + ".\n"
                 + "}";
         Query query2 = QueryFactory.create(queryString);
-        System.out.println(queryString);
+        
         try (QueryExecution qexec = QueryExecutionFactory.create(query2, m)) {
             ResultSet results2 = qexec.execSelect();
             for (; results2.hasNext();) {
-                QuerySolution soln = results2.nextSolution();               
+                QuerySolution soln = results2.nextSolution();
                 table_model.addRow(new Object[]{soln.get("indi").asNode().getLocalName()});
-                System.out.println(soln);
+               
             }
         }
-      
+
     }//GEN-LAST:event_jButton8ActionPerformed
     private final static String PANEL3 = "panel 3";
     private final static String PANEL1 = "panel 1";
@@ -959,7 +963,7 @@ public class Owl_ontology extends javax.swing.JFrame {
     private final static String PANEL4 = "panel 4";
 
     protected void addClasses(JComboBox cb) {
-      
+
         ArrayList<String> class_array = new ArrayList<String>();
         ExtendedIterator<OntClass> iter = model.listNamedClasses();
 
@@ -970,8 +974,7 @@ public class Owl_ontology extends javax.swing.JFrame {
                 continue;
             }
 
-            if (vClasse != null) {
-                System.out.println(vClasse);
+            if (vClasse != null) {             
                 class_array.add(vClasse);
             }
         }
@@ -986,28 +989,27 @@ public class Owl_ontology extends javax.swing.JFrame {
         ArrayList<String> subclass_array = new ArrayList<String>();
         String selected_class = class_combo.getSelectedItem().toString();
         OntClass foot = model.getOntClass(base + selected_class);
-        System.out.println(selected_class);
+       
         for (Iterator<OntClass> i = foot.listSubClasses(); i.hasNext();) {
             String c = i.next().getLocalName();
             if (c != null) {
                 flag = true;
                 OntClass football = model.getOntClass(base + c);
-                System.out.println(c);
+                
                 for (Iterator<OntClass> j = football.listSubClasses(); j.hasNext();) {
                     String b = j.next().getLocalName();
                     subclass_array.add(b);
-                    System.out.println(b);
+                    
                     OntClass sub2 = model.getOntClass(base + b);
                     for (Iterator<OntClass> k = sub2.listSubClasses(); k.hasNext();) {
                         String a = k.next().getLocalName();
                         subclass_array.add(a);
-                        System.out.println(a);
+                       
                         OntClass sub3 = model.getOntClass(base + a);
                         for (Iterator<OntClass> l = sub3.listSubClasses(); l.hasNext();) {
                             String d = l.next().getLocalName();
                             subclass_array.add(d);
-                            System.out.println(d);
-
+                          
                         }
                     }
                 }
@@ -1023,8 +1025,6 @@ public class Owl_ontology extends javax.swing.JFrame {
 
         subClass_combo.setModel(new DefaultComboBoxModel<String>(items));
     }
-
-    
 
     protected JPanel initFields() {
         JPanel panel1_1 = new JPanel();
@@ -1055,15 +1055,14 @@ public class Owl_ontology extends javax.swing.JFrame {
     }
 
     protected void getProperties(String sc, JComboBox jcR) {
-        OntClass sel_class = model.getOntClass(base + sc);        
+        OntClass sel_class = model.getOntClass(base + sc);
         ExtendedIterator<OntProperty> prop = sel_class.listDeclaredProperties(true);
         ArrayList<String> prop_array = new ArrayList<String>();
         DefaultTableModel table_model = (DefaultTableModel) jTable1.getModel();
         table_model.setRowCount(0);
         while (prop.hasNext()) {
-            OntProperty nm = prop.next();           
-            prop_array.add(nm.getLocalName());
-            System.out.println(nm);
+            OntProperty nm = prop.next();
+            prop_array.add(nm.getLocalName());           
         }
         String[] items = new String[prop_array.size()];
         prop_array.toArray(items);
@@ -1082,53 +1081,14 @@ public class Owl_ontology extends javax.swing.JFrame {
         //try {
         //load file and create model
         model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-        model.read("test3.owl", null);
+        model.read("football.owl", null);
         //create model with pellet reasoner
         m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
         //load file
-        m.read("test3.owl", null);
+        m.read("football.owl", null);
         //set base
         base = "http://www.semanticweb.org/ρωμανός/ontologies/2020/11/untitled-ontology-8#";
         m.setStrictMode(false);
-
-        final OntClass foot = m.getOntClass(base + "Footballer");
-        //printIterator(foot.listSubClasses(), "All super classes of " + foot.getLocalName());
-        final Iterator<?> i = foot.listInstances();
-        while (i.hasNext()) {
-            final Individual ind = (Individual) i.next();
-
-            System.out.println(ind);
-        }
-        printIterator(foot.listSubClasses(), "All super classes of " + foot.getLocalName());
-        ExtendedIterator married = foot.listInstances();
-
-        ArrayList<String> prop_array = new ArrayList<String>();
-        while (married.hasNext()) {
-            ExtendedIterator<OntProperty> prop = foot.listDeclaredProperties();
-            OntResource nm1 = (OntResource) married.next();
-            while (prop.hasNext()) {
-
-                OntProperty nm = prop.next();
-                if (nm1.hasProperty(nm)) {
-                    prop_array.add(nm.getLocalName());
-                    System.out.println(nm);
-                }
-            }
-
-
-            System.out.println(nm1);
-        }
-
-        String sth = model.listClasses().toString();
-        System.out.println(sth);
-        System.out.println("Model size : " + model.size());
-        // System.out.println("Model size : " + ontModel.size()); 
-        while (married.hasNext()) {
-
-            OntResource mp = (OntResource) married.next();
-
-            System.out.println(mp.getURI());
-        } // this code returns 2 individuals with the help of reasoner
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
