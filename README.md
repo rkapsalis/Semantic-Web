@@ -1,20 +1,32 @@
 # Semantic Web
 ## Exercise 1
-1. Add a new data type (simpleType) for element "Day" to the XML schema, to accept only the following values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.
+This assignment is about XML, XML Schema (XSD), XPath and XSL.
 
-2. Add a new data type (simpleType) for "Time" to the XML Schema to accept only string values of 11 characters and follow the pattern "2 digits, colon, 2 digits, dash, 2 digits, colon, 2 digits", such as: "15:30-18:00".
+Detailed inforamtion about the assignment can be found [here](https://github.com/rkapsalis/KRWEB/blob/main/Exercise%201/ex1_krweb_en.pdf).
+## Exercise 2
+In this assignment an RDFS university ontology is created containing:
+* 6 Classes
+* 9 Properties
 
-3. Make an appropriate change to the XML Schema so that each "Event" can contain more than one, but less than ten "Lecture" elements.
+and filled with:
+* 8 University departments
+* 11 Professors
+* 17 Students
+* 10 Courses
+* 16 Classrooms
 
-4. Set an attribute in the XML Schema under "Lecture", called "Classroom" with type: string with less than 8 characters. This feature should be mandatory on each "Lecture".
+Then some SPARQL queries were executed in this ontology.
+Finally an app in JAVA was developed, using JenaAPI allowing the user to select a Department and display all the information related to it, add new data to ontology and search by giving the URI of a resource.
 
-5. Convert the inline declaration of the type of the elements "Event", "Lecture", "day", "time", "classroom" to global. 
+Detailed inforamtion about the assignment can be found [here](https://github.com/rkapsalis/KRWEB/blob/main/Exercise%202/ex2_krweb_en.pdf).
+## Project
+A football OWL ontology was created in Protege.
 
-6. Create three new types that derive from the type "eventType":
-  - The type "lessonType" is an extension of the type"eventType", adding the additional element "Professor".
-  - The type "SeminarType" is a restriction of the type "eventType" so as to contain only one "Lecture" element.
-  - The type "labType" is a restriction of the type "eventType" so that elements of this type do not contain the "classroom" attribute.
+Also, an application in Java was developed. The application:
+* Loads the football OWL ontology and applies an Inference model
+* Allows the retrieval and display of snapshots of the ontology after the selection of a class by the user.
+* Allows the insertion of new snapshots.
+* Allows the search of snapshots based on user-defined parameter values, using SPARQL queries.
+* Allows the search of snapshots based on parameter values to be specified by the user.
 
-7. Define globally three elements "lesson", "Seminar" and "Lab" of type "lessonType", "seminarType" and "labType" respectively, in order to use (SubstituteGroup) where reference is made to an "Event" element.
-
-8. Develop a GUI application in JAVA, in which you load the xml file, and if it is valid based on the corresponding xml schema, you will present the contents in a table. The user will also be able to import new data (lectures) into the xml file. Finally, it can filter the data displayed in the table by choosing a day of the week.
+Detailed inforamtion about the assignment can be found [here](https://github.com/rkapsalis/KRWEB/blob/main/Project/KRWEB_20-21_PROJECT.pdf) (in greek).
